@@ -91,3 +91,15 @@ body {
 .feature-card {
     cursor: crosshair;
 }
+
+
+img {
+    float: right;
+    width: 40%;
+    height: 40%;
+    margin-left: 750px;
+    margin-top: 20px;
+    border-radius: 50%;
+    border: 1px hidden rgb(190, 143, 224);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
