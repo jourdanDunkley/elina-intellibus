@@ -9,7 +9,36 @@ document.addEventListener("DOMContentLoaded", () => {
     initFeatureCards();
     initPhilosophySplitText();
     initStickyProtocol();
+    initTestModal();
 });
+
+// --- 0. TEST ELINA MODAL ---
+function initTestModal() {
+    const modal = document.getElementById("test-modal");
+    const card = document.getElementById("test-modal-card");
+    const openBtn = document.getElementById("test-elina-btn");
+    const closeBtn = document.getElementById("test-modal-close");
+    const backdrop = document.getElementById("test-modal-backdrop");
+
+    function openModal() {
+        modal.classList.remove("pointer-events-none");
+        gsap.to(modal, { opacity: 1, duration: 0.25, ease: "power2.out" });
+        gsap.to(card, { scale: 1, duration: 0.35, ease: "back.out(1.4)" });
+    }
+
+    function closeModal() {
+        gsap.to(card, { scale: 0.95, duration: 0.2, ease: "power2.in" });
+        gsap.to(modal, {
+            opacity: 0, duration: 0.25, ease: "power2.in", delay: 0.05,
+            onComplete: () => modal.classList.add("pointer-events-none")
+        });
+    }
+
+    openBtn.addEventListener("click", openModal);
+    closeBtn.addEventListener("click", closeModal);
+    backdrop.addEventListener("click", closeModal);
+    document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeModal(); });
+}
 
 // --- 1. NAVBAR MORPHING ---
 function initNavbar() {
